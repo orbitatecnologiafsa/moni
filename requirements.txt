@@ -4,4 +4,4 @@ SpeechRecognition==3.10.4
 transformers==4.41.2
 TensorFlow >= 2.0
 tf-keras >= 2.0
-pyaudio >= 2.0
+pyaudio >= 0.2.0
