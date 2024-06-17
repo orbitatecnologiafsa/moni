@@ -1,0 +1,7 @@
+python -m venv venv
+pip install pyttsx3 speechrecognition pypdf2 transformers
+pip install tensorflow
+pip install tf-keras 
+pip install pyaudio
+venv\Scripts\activate
+python test.py

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistente Virtual MONI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            padding: 10px;
+            background-color: #3860ff;
+            color: white;
+            border-radius: 5px;
+        }
+        .chatbox {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .user-message, .moni-message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .user-message {
+            background-color: #e1ffc7;
+            text-align: right;
+        }
+        .moni-message {
+            background-color: #e0e0e0;
+            text-align: left;
+        }
+        .input-area {
+            margin-top: 20px;
+            display: flex;
+        }
+        .input-area input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .input-area button {
+            padding: 10px;
+            border: none;
+            background-color: #3860ff;
+            color: white;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Assistente Virtual MONI</h1>
+            <video src="./WhatsApp Video 2024-06-17 at 16.46.25.mp4" id="videoMoni" controls style="width: 100%;"></video>
+        </div>
+        <div class="chatbox" id="chatbox">
+            <!-- Mensagens serão adicionadas aqui -->
+        </div>
+        <div class="input-area">
+            <input type="text" id="userInput" placeholder="Digite sua mensagem...">
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            playVideo();
+        })
+        function playVideo() {
+            document.getElementById('videoMoni').play()
+        }
+        function sendMessage() {
+            const userInput = document.getElementById('userInput');
+            const chatbox = document.getElementById('chatbox');
+
+            // Cria a mensagem do usuário
+            const userMessage = document.createElement('div');
+            userMessage.className = 'user-message';
+            userMessage.innerText = userInput.value;
+            chatbox.appendChild(userMessage);
+
+            // Aqui você pode adicionar a lógica para enviar a mensagem para o servidor e receber a resposta
+            const moniMessage = document.createElement('div');
+            moniMessage.className = 'moni-message';
+            moniMessage.innerText = 'Resposta do MONI: ' + userInput.value; // Simulação de resposta
+            chatbox.appendChild(moniMessage);
+
+            // Limpa o campo de entrada
+            userInput.value = '';
+
+            // Rolagem automática para a última mensagem
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
+    </script>
+</body>
+</html>
